@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[利用接口实现Fragment与Activity间的通信]]></title>
+    <url>%2F2017%2F08%2F13%2FAndroid0%2F</url>
+    <content type="text"><![CDATA[问题概述Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。 代码示例代码背景 一个应用需实现忘记密码功能，在此功能中，我们创建了一个Activity用于承载忘记密码模块的所有功能实现，忘记密码模块所有页面逻辑都依赖于Fragment来实现，第一个页面就是获取手机号并请求后台为该手机号发送验证码 代码详解1. 在Fragment中创建Interface12345678/** * Fragment与Activity通信的接口 * 用于传递输入的电话号码 */ public interface InputMobileListener &#123; //传入电话号码给Activity void inputPhoneNumberNextAction(String mobile); &#125; 这里在Fragment中定义了一个接口，在接口中写了一个方法以保存手机号的字符串为参数， 2. 在Fragment所依赖的Activity中实现接口并重写方法12345678910public class ForgetPwdActivity implements InputMobileFragment.InputMobileListener&#123; ······ @Override public void inputPhoneNumberNextAction(final String mobile) &#123; //替换Fragment replaceFragment(R.id.frame_layout, checkCodeFragment, null); //请求后台为该号码发送验证码 sendVerifyCode(mobile); &#125;&#125; 在Activity中重写该方法，在方法体中接收到手机号并进行一系列操作，此处是发送验证码 3. 在Fragment中重写回调方法Fragment与Activity一样，在创建和销毁时都会回调一系列回调方法，而onAttach方法是在Fragment创建之初回调的，所以我们重写onAttach方法便可以保证Fragment全程皆能调用接口中的方法。 1234567891011@Overridepublic void onAttach(Activity activity) &#123; super.onAttach(activity); //抓取异常，在父Activity未实现接口时抛出。 try &#123; //Java的多态特性之一，父类引用子类对象 InputMobileListener inputMobileListener = (InputMobileListener) activity; &#125; catch (ClassCastException e) &#123; throw new ClassCastException(activity.toString() + getString(R.string.implementSPN)); &#125;&#125; 4. 在Fragment中通过接口引用Activity对象调用接口方法1234567public void onButtonClicked()&#123; //获取手机号输入框中的手机号 String mobile = mobileEdit.getText().toString().trim(); //此处应对获取的手机号做正则匹配，无关代码便不列出了 //调用重写后的接口方法 inputMobileListener = (InputMobileListener) activity;&#125; 到这就是全部实现了，这其实就是Java多态的一种应用，相信你很快就能掌握。]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F08%2F13%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
