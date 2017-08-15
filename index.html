@@ -288,6 +288,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://abtion.cn/2017/08/15/Android2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Abtion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oum3tk6e0.bkt.clouddn.com/05EFAB27C6DF9EC83E73911B72B0E843.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abtion Tech">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/15/Android2/" itemprop="url">Android中Material Design风格控件的应用（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T20:27:22+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/15/Android2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/15/Android2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="TextInputLayout"><a href="#TextInputLayout" class="headerlink" title="TextInputLayout"></a>TextInputLayout</h2><h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>以后有空再放吧</p>
+<h3 id="一、导入Support-Library"><a href="#一、导入Support-Library" class="headerlink" title="一、导入Support Library"></a>一、导入Support Library</h3><p>Material Design控件是Android Support Library中的一个重要的组件，要使用TextInputLayout控件，你需要导入两个Library。第一个是appcompat-v7,它确保material style可以向后兼容。第二个是Design Support Library。在你的build.gradle文件中，添加如下依赖：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:design:25.2.0'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.2.0'</span></div></pre></td></tr></table></figure>
+<h3 id="二、在XML中使用该控件"><a href="#二、在XML中使用该控件" class="headerlink" title="二、在XML中使用该控件"></a>二、在XML中使用该控件</h3><p>TextInputEditText的使用必须在TextInputLayout中才有这种MD的效果</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TextInputLayout</span></span></div><div class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.design.widget.TextInputEditText</span></span></div><div class="line"><span class="tag">                <span class="attr">android:maxLines</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">                <span class="attr">android:id</span>=<span class="string">"@+id/edit_mobile"</span></span></div><div class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"48dp"</span></span></div><div class="line"><span class="tag">                <span class="attr">android:layout_marginLeft</span>=<span class="string">"8dp"</span></span></div><div class="line"><span class="tag">                <span class="attr">android:hint</span>=<span class="string">"手机号"</span></span></div><div class="line"><span class="tag">                <span class="attr">android:inputType</span>=<span class="string">"number"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.TextInputLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其实这里跟EditText没有多大的区别</p>
+<h3 id="三、在代码中实现显示错误信息的功能"><a href="#三、在代码中实现显示错误信息的功能" class="headerlink" title="三、在代码中实现显示错误信息的功能"></a>三、在代码中实现显示错误信息的功能</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">     * 用于TextInputEditText控件显示错误信息</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> textInputEditText 控件对象</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> error 错误信息</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showError</span><span class="params">(TextInputEditText textInputEditText, String error)</span> </span>&#123;</div><div class="line">        textInputEditText.setError(error);</div><div class="line">        textInputEditText.setFocusable(<span class="keyword">true</span>);</div><div class="line">        textInputEditText.setFocusableInTouchMode(<span class="keyword">true</span>);</div><div class="line">        textInputEditText.requestFocus();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>不解释了好吧，在检验到错误的时候调用就好了。</p>
+<p>以上</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://abtion.cn/2017/08/13/Android1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -982,7 +1121,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -995,7 +1134,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
