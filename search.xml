@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android CountDownTimer]]></title>
+    <url>%2F2017%2F08%2F16%2FAndroid3%2F</url>
+    <content type="text"><![CDATA[Tips在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。 Code12345678910111213new CountDownTimer(60000, 1000) &#123; @Override public void onTick(long l) &#123; btnGetVerifyCode.setText((l / 1000) + "s"); &#125; @Override public void onFinish() &#123; btnGetVerifyCode.setClickable(true); btnGetVerifyCode.setText("获取验证码"); btnGetVerifyCode.setBackgroundColor(getResources().getColor(R.color.primary)); &#125; &#125;.start(); 当然，对象是否匿名不影响功能的实现。]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android中Material Design风格控件的应用（一）]]></title>
     <url>%2F2017%2F08%2F15%2FAndroid2%2F</url>
     <content type="text"><![CDATA[TextInputLayout效果以后有空再放吧 一、导入Support LibraryMaterial Design控件是Android Support Library中的一个重要的组件，要使用TextInputLayout控件，你需要导入两个Library。第一个是appcompat-v7,它确保material style可以向后兼容。第二个是Design Support Library。在你的build.gradle文件中，添加如下依赖： 12compile 'com.android.support:design:25.2.0'compile 'com.android.support:appcompat-v7:25.2.0' 二、在XML中使用该控件TextInputEditText的使用必须在TextInputLayout中才有这种MD的效果 12345678910111213&lt;android.support.design.widget.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content"&gt; &lt;android.support.design.widget.TextInputEditText android:maxLines="1" android:id="@+id/edit_mobile" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginLeft="8dp" android:hint="手机号" android:inputType="number"/&gt; &lt;/android.support.design.widget.TextInputLayout&gt; 其实这里跟EditText没有多大的区别 三、在代码中实现显示错误信息的功能1234567891011/** * 用于TextInputEditText控件显示错误信息 * @param textInputEditText 控件对象 * @param error 错误信息 */ private void showError(TextInputEditText textInputEditText, String error) &#123; textInputEditText.setError(error); textInputEditText.setFocusable(true); textInputEditText.setFocusableInTouchMode(true); textInputEditText.requestFocus(); &#125; 不解释了好吧，在检验到错误的时候调用就好了。 以上]]></content>
       <tags>
-        <tag>Android</tag>
         <tag>Material Design</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
