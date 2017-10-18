@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Abtion Tech">
 <meta property="og:description" content="Java在创建对象时形如private Object object;这样的语句创建了一个Object类型的一个引用，而object = new Object();则是在内存中创建了一个新的对象，并将该引用指向该对象。 因计算机内存有限，对象引入了生命周期的概念，在生命周期结束了的时候回收内存，释放资源，而Java并不能直接操纵对象的生命周期，由此在JDK1.2时引入了强、软、弱、虚4种引用类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-18T11:45:12.000Z">
+<meta property="og:updated_time" content="2017-10-18T12:48:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中强软弱虚的四种引用">
 <meta name="twitter:description" content="Java在创建对象时形如private Object object;这样的语句创建了一个Object类型的一个引用，而object = new Object();则是在内存中创建了一个新的对象，并将该引用指向该对象。 因计算机内存有限，对象引入了生命周期的概念，在生命周期结束了的时候回收内存，释放资源，而Java并不能直接操纵对象的生命周期，由此在JDK1.2时引入了强、软、弱、虚4种引用类型。">
@@ -428,7 +428,7 @@
 <li><p>使用举例</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ReferenceQueue&lt;Object&gt; queue = <span class="keyword">new</span> ReferenceQueue&lt;&gt;();</div><div class="line">        PhantomReference&lt;Object&gt; pr = <span class="keyword">new</span> PhantomReference&lt;&gt;(<span class="keyword">new</span> Object(), queue);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ReferenceQueue&lt;Object&gt; queue = <span class="keyword">new</span> ReferenceQueue&lt;&gt;();</div><div class="line">PhantomReference&lt;Object&gt; pr = <span class="keyword">new</span> PhantomReference&lt;&gt;(<span class="keyword">new</span> Object(), queue);</div></pre></td></tr></table></figure>
 <ul>
 <li><p>使用场景</p>
 <ul>
@@ -444,6 +444,42 @@
 <h3 id="引用队列"><a href="#引用队列" class="headerlink" title="引用队列"></a>引用队列</h3><ul>
 <li>ReferenceQueue是用来配合引用工作的，没有ReferenceQueue一样可以运行。创建引用的时候可以指定关联的队列，当GC释放对象内存的时候，会将引用加入到引用队列，这相当于是一种通知机制。当关联的引用队列中有数据的时候，意味着引用指向的堆内存中的对象被回收。通过这种方式，JVM允许我们在对象被销毁后，做一些我们自己想做的事情。JVM提供了一个ReferenceHandler线程，将引用加入到注册的引用队列中。</li>
 </ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">引用类型</th>
+<th style="text-align:center">GC回收时间</th>
+<th style="text-align:center">用途</th>
+<th style="text-align:center">生存时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">强引用</td>
+<td style="text-align:center">never</td>
+<td style="text-align:center">对象的一般状态</td>
+<td style="text-align:center">JVM停止运行时</td>
+</tr>
+<tr>
+<td style="text-align:center">软引用</td>
+<td style="text-align:center">内存不足时</td>
+<td style="text-align:center">对象缓存</td>
+<td style="text-align:center">内存不足时终止</td>
+</tr>
+<tr>
+<td style="text-align:center">弱引用</td>
+<td style="text-align:center">GC时</td>
+<td style="text-align:center">对象缓存</td>
+<td style="text-align:center">GC后终止</td>
+</tr>
+<tr>
+<td style="text-align:center">虚引用</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -673,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#强引用"><span class="nav-number">1.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软引用"><span class="nav-number">2.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱引用"><span class="nav-number">3.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚引用"><span class="nav-number">4.</span> <span class="nav-text">虚引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用队列"><span class="nav-number">5.</span> <span class="nav-text">引用队列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#强引用"><span class="nav-number">1.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软引用"><span class="nav-number">2.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱引用"><span class="nav-number">3.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚引用"><span class="nav-number">4.</span> <span class="nav-text">虚引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用队列"><span class="nav-number">5.</span> <span class="nav-text">引用队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">6.</span> <span class="nav-text">对比</span></a></li></ol></div>
             
 
           </div>
