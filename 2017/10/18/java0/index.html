@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="jvm," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Abtion Tech">
-<meta property="og:url" content="http://abtion.cn/tags/Android/index.html">
+<meta name="description" content="Java在创建对象时形如private Object object;这样的语句创建了一个Object类型的一个引用，而object = new Object();则是在内存中创建了一个新的对象，并将该引用指向该对象。 因计算机内存有限，对象引入了生命周期的概念，在生命周期结束了的时候回收内存，释放资源，而Java并不能直接操纵对象的生命周期，由此在JDK1.2时引入了强、软、弱、虚4种引用类型。">
+<meta name="keywords" content="jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中强软弱虚的四种引用">
+<meta property="og:url" content="http://abtion.cn/2017/10/18/java0/index.html">
 <meta property="og:site_name" content="Abtion Tech">
+<meta property="og:description" content="Java在创建对象时形如private Object object;这样的语句创建了一个Object类型的一个引用，而object = new Object();则是在内存中创建了一个新的对象，并将该引用指向该对象。 因计算机内存有限，对象引入了生命周期的概念，在生命周期结束了的时候回收内存，释放资源，而Java并不能直接操纵对象的生命周期，由此在JDK1.2时引入了强、软、弱、虚4种引用类型。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-18T11:45:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abtion Tech">
+<meta name="twitter:title" content="Java中强软弱虚的四种引用">
+<meta name="twitter:description" content="Java在创建对象时形如private Object object;这样的语句创建了一个Object类型的一个引用，而object = new Object();则是在内存中创建了一个新的对象，并将该引用指向该对象。 因计算机内存有限，对象引入了生命周期的概念，在生命周期结束了的时候回收内存，释放资源，而Java并不能直接操纵对象的生命周期，由此在JDK1.2时引入了强、软、弱、虚4种引用类型。">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://abtion.cn/tags/Android/"/>
+  <link rel="canonical" href="http://abtion.cn/2017/10/18/java0/"/>
 
 
 
 
 
-  <title>标签: Android | Abtion Tech</title>
+  <title>Java中强软弱虚的四种引用 | Abtion Tech</title>
   
 
 
@@ -154,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -272,166 +277,267 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Android<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://abtion.cn/2017/10/18/java0/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Abtion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oum3tk6e0.bkt.clouddn.com/05EFAB27C6DF9EC83E73911B72B0E843.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abtion Tech">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/08/30/Android5/" itemprop="url">
-              
-                <span itemprop="name">NestedScrollView嵌套RecyclerView导致的相关问题</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Java中强软弱虚的四种引用</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-30T10:56:39+08:00"
-              content="2017-08-30" >
-          08-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T19:43:23+08:00">
+                2017-10-18
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/18/java0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/18/java0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/16/Android3/" itemprop="url">
-              
-                <span itemprop="name">Android CountDownTimer</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-16T17:14:07+08:00"
-              content="2017-08-16" >
-          08-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/15/Android2/" itemprop="url">
-              
-                <span itemprop="name">Android中Material Design风格控件的应用（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-15T20:27:22+08:00"
-              content="2017-08-15" >
-          08-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/13/Android1/" itemprop="url">
-              
-                <span itemprop="name">Android入门笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-13T13:56:01+08:00"
-              content="2017-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/13/Android0/" itemprop="url">
-              
-                <span itemprop="name">利用接口实现Fragment与Activity间的通信</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-13T13:36:49+08:00"
-              content="2017-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>Java在创建对象时形如<code>private Object object;</code>这样的语句创建了一个Object类型的一个引用，而<code>object = new Object();</code>则是在内存中创建了一个新的对象，并将该引用指向该对象。</p>
+<p>因计算机内存有限，对象引入了生命周期的概念，在生命周期结束了的时候回收内存，释放资源，而Java并不能直接操纵对象的生命周期，由此在JDK1.2时引入了强、软、弱、虚4种引用类型。</p>
+<h3 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h3><ul>
+<li><p>如果一个对象具有强引用，那就类似于必不可少的生活用品，垃圾回收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足问题。</p>
+</li>
+<li><p>使用举例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object object = <span class="keyword">new</span> Object();</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用场景</p>
+<ul>
+<li>最常见，便不作过多阐述了。</li>
+</ul>
+</li>
+<li><p>回收方法</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">object = <span class="keyword">null</span>;</div><div class="line">System.gc();</div></pre></td></tr></table></figure>
+<h3 id="软引用"><a href="#软引用" class="headerlink" title="软引用"></a>软引用</h3><ul>
+<li><p>软引用是用来描述一些有用但并不是必需的对象，如果一个对象只具有软引用，那就类似于可有可物的生活用品。如果内存空间足够，垃圾回收器就不会回收它，如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。 软引用可以和一个引用队列（ReferenceQueue）联合使用。</p>
+</li>
+<li><p>使用举例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SoftReference&lt;Object&gt; sr = <span class="keyword">new</span> SoftReference&lt;&gt;(<span class="keyword">new</span> Object());</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用场景</p>
+<ul>
+<li>可以很好地解决一部分用于对象不能回收导致的OOM问题，很适合用来实现缓存。</li>
+</ul>
+</li>
+<li><p>回收方法</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sr = <span class="keyword">null</span>;</div><div class="line">System.gc();</div></pre></td></tr></table></figure>
+<h3 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h3><ul>
+<li><p>弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。如果一个对象只具有弱引用，那就类似于可有可物的生活用品。弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它 所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。  弱引用也可以和一个引用队列（ReferenceQueue）联合使用。</p>
+</li>
+<li><p>使用举例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">WeakReference&lt;Object&gt; wf = <span class="keyword">new</span> WeakReference&lt;&gt;(<span class="keyword">new</span> Object());</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用场景</p>
+<ul>
+<li>由于java的gc的线程优先级很低，导致调用频率并不会很高，所以仅有弱引用的对象并不会很快回收掉，使用弱引用同样可以很好地解决一部分用于对象不能回收导致的OOM问题，很适合用来实现缓存。</li>
+</ul>
+</li>
+<li><p>回收方法</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.gc();</div></pre></td></tr></table></figure>
+<h3 id="虚引用"><a href="#虚引用" class="headerlink" title="虚引用"></a>虚引用</h3><ul>
+<li><p>虚引用和前面的软引用、弱引用不同，它并不影响对象的生命周期。必须和引用队列联合使用。不能用于调用对象，如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。 虚引用主要用来跟踪对象被垃圾回收的活动。</p>
+</li>
+<li><p>使用举例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ReferenceQueue&lt;Object&gt; queue = <span class="keyword">new</span> ReferenceQueue&lt;&gt;();</div><div class="line">        PhantomReference&lt;Object&gt; pr = <span class="keyword">new</span> PhantomReference&lt;&gt;(<span class="keyword">new</span> Object(), queue);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用场景</p>
+<ul>
+<li>由于java的gc的线程优先级很低，导致调用频率并不会很高，所以仅有弱引用的对象并不会很快回收掉，使用弱引用同样可以很好地解决一部分用于对象不能回收导致的OOM问题，很适合用来实现缓存。</li>
+</ul>
+</li>
+<li><p>回收方法</p>
+<ul>
+<li>并不存在回收问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="引用队列"><a href="#引用队列" class="headerlink" title="引用队列"></a>引用队列</h3><ul>
+<li>ReferenceQueue是用来配合引用工作的，没有ReferenceQueue一样可以运行。创建引用的时候可以指定关联的队列，当GC释放对象内存的时候，会将引用加入到引用队列，这相当于是一种通知机制。当关联的引用队列中有数据的时候，意味着引用指向的堆内存中的对象被回收。通过这种方式，JVM允许我们在对象被销毁后，做一些我们自己想做的事情。JVM提供了一个ReferenceHandler线程，将引用加入到注册的引用队列中。</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oum3tk6e0.bkt.clouddn.com/0C1A2B3571ABA0F583EBA205609C9BB2.jpg" alt="Abtion WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oum3tk6e0.bkt.clouddn.com/alipay.jpg" alt="Abtion Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/25/Android6/" rel="next" title="View绘制抢占其他控件的简要解决办法">
+                <i class="fa fa-chevron-left"></i> View绘制抢占其他控件的简要解决办法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -439,6 +545,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -459,8 +576,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oum3tk6e0.bkt.clouddn.com/05EFAB27C6DF9EC83E73911B72B0E843.jpeg"
@@ -537,6 +663,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#强引用"><span class="nav-number">1.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软引用"><span class="nav-number">2.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱引用"><span class="nav-number">3.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚引用"><span class="nav-number">4.</span> <span class="nav-text">虚引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用队列"><span class="nav-number">5.</span> <span class="nav-text">引用队列</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -656,10 +798,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -677,6 +819,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://abtion.cn/2017/10/18/java0/';
+          this.page.identifier = '2017/10/18/java0/';
+          this.page.title = 'Java中强软弱虚的四种引用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
