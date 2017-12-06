@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="编译原理," />
 
 
 
@@ -95,13 +95,14 @@
 
 
 <meta name="description" content="概述编译原理是现代计算机系统的基本组成部分之一，编译程序将高级语言编译成低级语言。编译原理是构造编译器和构建计算机高级语言的理论基础。 编译程序本身也是一个程序，主要分为词法分析、语法分析、语义分析、中间代码生成、中间代码优化、目标代码生成六个模块。其中：  仅与源代码有关的被称之为`前端，即词法分析、语法分析、语义分析、中间代码生成。 仅与目标代码有关的模块被称之为后端，即中间代码优化、目标代码">
+<meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Compilation principle 编译原理">
 <meta property="og:url" content="http://abtion.cn/2017/12/05/Compilation-principle/index.html">
 <meta property="og:site_name" content="Abtion Tech">
 <meta property="og:description" content="概述编译原理是现代计算机系统的基本组成部分之一，编译程序将高级语言编译成低级语言。编译原理是构造编译器和构建计算机高级语言的理论基础。 编译程序本身也是一个程序，主要分为词法分析、语法分析、语义分析、中间代码生成、中间代码优化、目标代码生成六个模块。其中：  仅与源代码有关的被称之为`前端，即词法分析、语法分析、语义分析、中间代码生成。 仅与目标代码有关的模块被称之为后端，即中间代码优化、目标代码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-05T10:41:48.315Z">
+<meta property="og:updated_time" content="2017-12-06T01:14:16.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compilation principle 编译原理">
 <meta name="twitter:description" content="概述编译原理是现代计算机系统的基本组成部分之一，编译程序将高级语言编译成低级语言。编译原理是构造编译器和构建计算机高级语言的理论基础。 编译程序本身也是一个程序，主要分为词法分析、语法分析、语义分析、中间代码生成、中间代码优化、目标代码生成六个模块。其中：  仅与源代码有关的被称之为`前端，即词法分析、语法分析、语义分析、中间代码生成。 仅与目标代码有关的模块被称之为后端，即中间代码优化、目标代码">
@@ -378,7 +379,7 @@
 <p><code>遍</code>贯穿整个编译程序的执行过程，一个编译程序可以由一遍或多遍执行，是对源程序或其等价的中间语言程序从头到尾扫视并完成规定任务的过程。</p>
 <h3 id="词法分析-lexical-analysis-or-scanning"><a href="#词法分析-lexical-analysis-or-scanning" class="headerlink" title="词法分析(lexical analysis or scanning)"></a>词法分析(lexical analysis or scanning)</h3><p>扫描源程序，根据<code>词法规则</code>识别并记录每个单词或符号。单词夫妇好是语言中具有独立意义的最基本机构，在多数程序语言中，单词符号(token)一般包括：<code>各类型的常数、保留字(reserved)、标识符(identifier)、运算符、界符等</code></p>
 <h3 id="语法分析-parsing"><a href="#语法分析-parsing" class="headerlink" title="语法分析(parsing)"></a>语法分析(parsing)</h3><p>在词法分析的基础上依据源程序的<code>语法规则</code>将单词序列分解成各类语法短语(表示成语法树)，如<code>程序</code>，<code>语句</code>，<code>表达式</code>等。在当前程序语言中，都使用的是上下文无关文法(context-free grammars)。语法分析是为了验证该程序在结构上的合法性(structurl validation)，可以生成语法树或推导(creats pars tree or derivation)，parsing也是自然语言处理的常用手段。</p>
-<p>语言的语法规则规定了如何从单词符号形成更大的结构(语法单位，可类比自然语言的语法)。</p>
+<p>语言的语法规则规定了如何从单词符号形成更大的结构(语法单位，可类比自然语言的语法)。自动机理论和上下文无关文法是我们讨论语法分析的理论基础。</p>
 <h3 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h3><p>语义分析是审查源程序有无语义错误，如是否符合源程序的上下文约束，运算相容性等；为代码生成阶段收集类错误；依靠严格约束规则来解决语言的二义性。如变量类型错误、数组下标越界等问题便是在进行语义分析时审查出的错误。</p>
 <h3 id="中间代码生成"><a href="#中间代码生成" class="headerlink" title="中间代码生成"></a>中间代码生成</h3><p>在上述工作完成之后，编译程序将源程序编程一种内部表示形式，这种表示形式被称为中间代码。</p>
 <h3 id="中间代码优化"><a href="#中间代码优化" class="headerlink" title="中间代码优化"></a>中间代码优化</h3><p>移除优化冗余中间代码。</p>
@@ -386,6 +387,105 @@
 <h3 id="解释程序与编译程序"><a href="#解释程序与编译程序" class="headerlink" title="解释程序与编译程序"></a>解释程序与编译程序</h3><p>解释程序同样是一种语言处理程序，它不生成目标代码，会在源程序运行时同时运行，一边分析源程序一边运行已经分析完的语句并生成结果。</p>
 <p>而编译程序则不同，编译和运行是两个不同的过程，不把整个程序全部都翻译结束后，这个程序就不能开始运行。</p>
 <p>所以可以看出，使用编译程序的程序语言(如C、C++)在运行时的运行速度是高于使用解释程序的程序语言(如Python、JavaScript等脚本语言)的。</p>
+<h2 id="文法和语言"><a href="#文法和语言" class="headerlink" title="文法和语言"></a>文法和语言</h2><p>文法是阐明语法的一种工具，这是形式语言理论的基本概念之一。</p>
+<h3 id="文法和语言的形式定义"><a href="#文法和语言的形式定义" class="headerlink" title="文法和语言的形式定义"></a>文法和语言的形式定义</h3><p>在讨论文法和语言的形式定义之前，我们来想想如何描述一种语言？</p>
+<ul>
+<li><p>如果语言是有穷的（只含有有穷多个句子），可以将句子逐一列出来表示</p>
+</li>
+<li><p>如果语言是无穷的，找出语言的有穷表示。语言的有穷表示有两个途经：</p>
+<ul>
+<li>生成方式 （文法）：语言中的每个句子可以用严格 定义的规则来构造。</li>
+<li>识别方式（自动机）：用一个过程，当输入的一任意串属于语言时，该过程经有限次计算后就会停止并回答“是”；若不属于，要么能停止并回答“不是” 。</li>
+</ul>
+</li>
+</ul>
+<p>编程语言中的每个句子都可以用严格定义的规则来构造。</p>
+<ul>
+<li>规则：<ul>
+<li>也称重写规则、产生式或生成式，是形如→或 ∷=的( ，)有序对，其中是字母表V的正闭包V+中的一个符号，是V*中的一个符号。  称为规则的左部，  称作规则的右部。</li>
+</ul>
+</li>
+</ul>
+<p>文法G定义为四元组(V_N，V_T，P，S )其中</p>
+<h4 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h4><ul>
+<li>V_N: 非终结符号集(或语法实体集，或变量集)；</li>
+<li>V_T: 终结符号集；</li>
+<li>P: 规则的集合；</li>
+<li>S: 称作识别符号或开始符号的一个非终结符，它至少要在一条产生式中作为左部出现。</li>
+</ul>
+<p>V_N，V_T和P是 非空有穷集。V_N和V_T不含公共的元素，即V_N ∩ V_T = φ，用V表示V_N ∪ V_T，称为文法G的字母表或字汇表。</p>
+<h4 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h4><p>推导在文法中具有举足轻重的地位，在定义了规则之后，任一语法都可由规则推导而来。在描述推导之前需要明确直接推导的定义：</p>
+<h5 id="直接推导“-gt-”"><a href="#直接推导“-gt-”" class="headerlink" title="直接推导“=&gt;”"></a>直接推导“=&gt;”</h5><p>α→β是文法G的产生式，若有v,w满足：v=γαδ,w= γβδ, 其中γ∈V*，δ∈*，则称v直接推导到w，记作 v =&gt; w。也称w直接归约到v</p>
+<p>例：G[S]： S→0S1， S→01</p>
+<ul>
+<li>0S1 =&gt; 00S11</li>
+<li>00S11 =&gt; 000S111</li>
+<li>000S111 =&gt; 00001111</li>
+<li>S =&gt; 0S1</li>
+</ul>
+<p>也就是说，直接推导是仅使用语法规则进行了一次变换。</p>
+<h5 id="推导的定义"><a href="#推导的定义" class="headerlink" title="推导的定义"></a>推导的定义</h5><p>若存在v = w0 =&gt; w1 =&gt; … =&gt; w_n = w,(n&gt;0)，则记为v =&gt;+ w，称作v推导出w，或w归约到v<br>若有v =&gt;+ w 或 v=w，则记为v =&gt;* w</p>
+<p>例：G： S→0S1， S→01</p>
+<ul>
+<li>0S1 =&gt; 00S11</li>
+<li>00S11 =&gt; 000S111</li>
+<li>000S111 =&gt; 00001111 </li>
+</ul>
+<p>S =&gt; 0S1 =&gt; 00S11 =&gt; 000S111 =&gt; 00001111 </p>
+<p>S =&gt;+ 00001111</p>
+<p>S =&gt;* S</p>
+<p>00S11 =&gt;* 00S11</p>
+<p>也就是说，推导是使用了1次或多次语法规则变换。</p>
+<h4 id="句型、句子"><a href="#句型、句子" class="headerlink" title="句型、句子"></a>句型、句子</h4><p><code>句型</code>有文法G[S]，若S =&gt;* X，则称X是文法G的句型。</p>
+<p><code>句子</code>有文法G[S]，若S =&gt;<em> x，x∈V_T</em>，则称x是文法G的句子。</p>
+<p>例：G： S→0S1， S→01<br>S =&gt; 0S1 =&gt; 00S11 =&gt; 000S111 =&gt; 00001111</p>
+<p>G的句型S,0S1,00S11,000S111,00001111</p>
+<p>G的句子00001111,01,句子一定是句型，反之不然。</p>
+<h4 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h4><p>由文法G生成的语言记为L(G),它是文法G的一切句子的集合:</p>
+<p>L(G)={x|S =&gt;<em> x，其中S为文法的开始符号，且x ∈V_T</em>}</p>
+<p>例：G： S→0S1， S→01</p>
+<p>L(G)={0^n 1^n | n≥1}</p>
+<p>也就是说G生成的每个串都在L(G)中，L(G)中的每个串趋势能被G生成。</p>
+<h3 id="文法的类型"><a href="#文法的类型" class="headerlink" title="文法的类型"></a>文法的类型</h3><p>通过对产生式施加不同的限制，Chomsky将文法分为四种类型：</p>
+<ul>
+<li><p><code>0型文法：</code>对任一产生式α→β，都有α∈(V_N∪V_T)+， β∈(V_N ∪ V_T)*</p>
+</li>
+<li><p><code>1型文法：</code>对任一产生式α→β，都有|β|≥|α|， 仅仅 S→ε除外</p>
+</li>
+<li><p><code>2型文法：</code>对任一产生式α→β，都有α∈V_N </p>
+</li>
+<li><p><code>3型文法：</code>任一产生式α→β的形式都为A→aB或A→a，其中A∈VN ，B∈V_N ，a∈V_T*</p>
+</li>
+</ul>
+<p>2型文法又称上下文无关文法，有足够的能力描述程序设计语言的语法结构。3型文法又称正则文法，正则表达式便是该文法的句子。</p>
+<h3 id="语法树"><a href="#语法树" class="headerlink" title="语法树"></a>语法树</h3><p>每个句型都可由语法规则推导而来，推导过程可用一棵语法树描述。推导有通常有最左、最右、混合三种推导方法，分别是在每一步推导最左、最右、随机的非终结符。在非二义文法中，不同的推导方法会生成同一颗语法树。最右推导被称为规范推导，由规范推导所得的句型被称为规范句型。</p>
+<p>如果一个文法存在两棵不同的语法树，则称该文法<code>为二义文法</code>。或者说该文法具有<code>二义性</code>。</p>
+<h3 id="句型分析"><a href="#句型分析" class="headerlink" title="句型分析"></a>句型分析</h3><p>识别某一符号串是否为某个文法的句型，实际上就是推导的构造过程。主要有以下两种方向的算法：</p>
+<ul>
+<li>自上而下分析法：从文法的开始符号出发，反复使用文法的产生式，寻找与输入符号串匹配的推导，或者说，为输入串寻找一个最左推导。</li>
+<li>自下而上分析法：从输入符号串开始，逐步进行归约，直至归约到文法的开始符号。</li>
+</ul>
+<p>这两种算法也反映了语法树的构造过程。</p>
+<ul>
+<li>自上而下方法：从文法符号开始，将它做为语法树的根，向下逐步建立语法树，使语法树的结果正好是输入符号串。</li>
+<li>自下而上方法：从输入符号串开始，以它做为语法树的结果，自底向上的构造语法树。</li>
+</ul>
+<h4 id="短语及其相关概念"><a href="#短语及其相关概念" class="headerlink" title="短语及其相关概念"></a>短语及其相关概念</h4><ul>
+<li>句型的短语：S =&gt;* αAδ 且  A =&gt;+ β，则称β是句型αβδ相对于非终结符A的短语</li>
+<li>句型的直接短语：若有A =&gt; β，则称β是句型αβδ相对于非终结符A 的直接短语</li>
+<li>句型的句柄：一个句型的最左直接短语称为该句型的句柄(最左子串)</li>
+<li>最左素短语：至少含有一个终结符的最左边的短语，且这个短语不包含别的短语，不一定是直接短语。</li>
+</ul>
+<h3 id="其他相关"><a href="#其他相关" class="headerlink" title="其他相关"></a>其他相关</h3><p>自上而下分析方法要求文法不含左递归，否则会导致程序死循环，在文法描述有左递归应消除左递归。方法如下：</p>
+<p>例如：<br>A -&gt; Ab1|Ab2|Ab3|…|Abn|c1|c2|c3|…|cn</p>
+<p>消除左递归后</p>
+<p>A -&gt; c1A’|c2A’|c3A’|…|cnA’</p>
+<p>A’ -&gt; b1A‘|b2A‘|b3A‘|…|bnA‘|ε</p>
+<p>在消除左递归后会产生右递归，但对自上而下分析方法没有影响。</p>
+<p>例2：<br>S → Sabc|abc|bc|c</p>
+<p>消除左递归后</p>
+<p>S→abcS’| bcS’| cS’</p>
+<p>S’→abcS’| ε    </p>
 
       
     </div>
@@ -429,6 +529,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编译原理/" rel="tag"># 编译原理</a>
+          
+        </div>
       
 
       
@@ -550,7 +656,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -609,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析-lexical-analysis-or-scanning"><span class="nav-number">1.1.</span> <span class="nav-text">词法分析(lexical analysis or scanning)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析-parsing"><span class="nav-number">1.2.</span> <span class="nav-text">语法分析(parsing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语义分析"><span class="nav-number">1.3.</span> <span class="nav-text">语义分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间代码生成"><span class="nav-number">1.4.</span> <span class="nav-text">中间代码生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间代码优化"><span class="nav-number">1.5.</span> <span class="nav-text">中间代码优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标代码生成"><span class="nav-number">1.6.</span> <span class="nav-text">目标代码生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释程序与编译程序"><span class="nav-number">1.7.</span> <span class="nav-text">解释程序与编译程序</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析-lexical-analysis-or-scanning"><span class="nav-number">1.1.</span> <span class="nav-text">词法分析(lexical analysis or scanning)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析-parsing"><span class="nav-number">1.2.</span> <span class="nav-text">语法分析(parsing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语义分析"><span class="nav-number">1.3.</span> <span class="nav-text">语义分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间代码生成"><span class="nav-number">1.4.</span> <span class="nav-text">中间代码生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间代码优化"><span class="nav-number">1.5.</span> <span class="nav-text">中间代码优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标代码生成"><span class="nav-number">1.6.</span> <span class="nav-text">目标代码生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释程序与编译程序"><span class="nav-number">1.7.</span> <span class="nav-text">解释程序与编译程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文法和语言"><span class="nav-number">2.</span> <span class="nav-text">文法和语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文法和语言的形式定义"><span class="nav-number">2.1.</span> <span class="nav-text">文法和语言的形式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文法"><span class="nav-number">2.1.1.</span> <span class="nav-text">文法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推导"><span class="nav-number">2.1.2.</span> <span class="nav-text">推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#直接推导“-gt-”"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">直接推导“=>”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#推导的定义"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">推导的定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#句型、句子"><span class="nav-number">2.1.3.</span> <span class="nav-text">句型、句子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语言"><span class="nav-number">2.1.4.</span> <span class="nav-text">语言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文法的类型"><span class="nav-number">2.2.</span> <span class="nav-text">文法的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法树"><span class="nav-number">2.3.</span> <span class="nav-text">语法树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#句型分析"><span class="nav-number">2.4.</span> <span class="nav-text">句型分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#短语及其相关概念"><span class="nav-number">2.4.1.</span> <span class="nav-text">短语及其相关概念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他相关"><span class="nav-number">2.5.</span> <span class="nav-text">其他相关</span></a></li></ol></li></ol></div>
             
 
           </div>
