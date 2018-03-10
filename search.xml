@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[numpy 常用方法笔记]]></title>
+    <url>%2F2018%2F03%2F10%2Fpython0%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960import numpy as npa = np.ones((2,3))"""a:array([[ 1., 1., 1.], [ 1., 1., 1.]])"""b = np.array([[2,3,4],[5,6,7]])a =a - b"""a:array([[ 1., 2., 3.], [ 4., 5., 6.]])"""np.random.shuffle(a[0])"""打乱顺序，可添加随机种子return Nonea:array([[ 3., 1., 2.], [ 4., 5., 6.]])"""np.argsort(a,axis = 0)"""返回从小到大的indexarray([[0, 0, 0], [1, 1, 1]])"""np.argsort(a,axis = 1)"""对a[0]而言，最小的元素是1，则返回的矩阵的第0行第0个元素为元素1的下标。array([[1, 2, 0], [0, 1, 2]])"""np.transpose(a)"""矩阵转置，一维矩阵需转化为二维array([[ 3., 4.], [ 1., 5.], [ 2., 6.]])"""a = a.astype(int)"""a:array([[3, 1, 2], [4, 5, 6]])"""np.bincount(a.reshape(-1))"""返回数组中从0到最大值的每个整数数量列表，0没有，1没有，1一个array([0, 0, 1, 1, 2, 2, 2, 2, 1, 1])"""]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>numpy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux批量添加及环境配置脚本]]></title>
     <url>%2F2018%2F03%2F08%2Fshell0%2F</url>
     <content type="text"><![CDATA[概述在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do useradd $nameecho "neuqdelta" | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$name/sed -i '$a export PATH=/home/amax/anaconda3/bin:$PATH' /home/$name/.bashrcdone 脚本执行完毕后，创建test01、test02两个用户，密码都是neuqdelta。并在/data/目录下创建了仅该用户可用的与用户名同名的目录，配置了环境变量。 代码解释for 循环shell中的for循环的写法如下：1234for i in listdo # do somethingdone 创建文件，修改权限123mkdir filename #创建名为filename的文件夹chown -R username filename #filename文件夹及其所有文件更换所有者为usernamechmod -R mode filename #更改改文件夹及其所有文件访问模式 其中mode是三位整数，每位数字是以下数字的和 4也就是“r”，代表读 2也就是“w”，代表写 1也就是“x”，代表执行或切换权限 0也就是“-”，不具备任何权限所以7就指的是具有所有权限 三位数的每一位分别代表： uuser ggroup oother 所以，我的脚本中的700指的是仅该目录所有者拥有该目录所有权限，其他用户不具备该目录的任何权限。 在文件中追加一行这里的作用是在username/.bashrc中新增环境变量1sed -i '$a 这是追加的内容' file 其中$a 指的是在末尾追加内容，sed是个十分实用的指令，可以对文本内容进行操作，在此就不过多赘述了。]]></content>
