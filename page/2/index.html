@@ -370,10 +370,8 @@
       
         
           
-           Tips
-在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。
- Code
-1234567891
+          Tips在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。
+Code12345678910111
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -510,11 +508,8 @@
       
         
           
-           TextInputLayout
- 效果
-以后有空再放吧
- 一、导入Support Library
-Material Design控件是Android Support Library中的一个重要的组件，要使用TextInputLayout控件，你需要导入两个Library。第一个是appcompat
+          TextInputLayout效果以后有空再放吧
+一、导入Support LibraryMaterial Design控件是Android Support Library中的一个重要的组件，要使用TextInputLayout控件，你需要导入两个Library。第一个是appcompat-v7,它确
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -651,13 +646,10 @@ Material Design控件是Android Support Library中的一个重要的组件，要
       
         
           
-           概念
+          概念
+android会根据不同的屏幕分辨率家在不同的文件夹，如果你想禁止Android不跟随屏幕密度加载不同文件夹的资源,只需在AndroidManifest.xml文件中添加android:anyDensity=”false”字段即可!
 
-
-android会根据不同的屏幕分辨率家在不同的文件夹，如果你想禁止Android不跟随屏幕密度加载不同文件夹的资源,只需在AndroidManifest.xml文件中添加android:anyDensity=&quot;false&quot;字段即可!
-
-
-raw目录： 用于存放各种原生
+raw目录： 用于存放各种原生资源(音频，视频，一些XML
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -794,12 +786,9 @@ raw目录： 用于存放各种原生
       
         
           
-           问题概述
-Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。
- 代码示例
- 代码背景
-
-一个应用需实现忘记密码功能，在此功能中，我们创建了一个
+          问题概述Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。
+代码示例代码背景
+一个应用需实现忘记密码功能，在此功能中，我们创建了一个Activi
           ...
           <!--noindex-->
           <div class="post-button text-center">

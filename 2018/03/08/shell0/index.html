@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="概述 在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do  useradd $nameecho &quot;neuqdelta&quot; | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$na">
+<meta name="description" content="概述在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do  useradd $nameecho &quot;neuqdelta&quot; | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$name">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux批量添加及环境配置脚本">
 <meta property="og:url" content="http://abtion.cn/2018/03/08/shell0/index.html">
 <meta property="og:site_name" content="Abtion Tech">
-<meta property="og:description" content="概述 在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do  useradd $nameecho &quot;neuqdelta&quot; | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$na">
+<meta property="og:description" content="概述在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do  useradd $nameecho &quot;neuqdelta&quot; | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$name">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-08T06:47:17.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux批量添加及环境配置脚本">
-<meta name="twitter:description" content="概述 在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do  useradd $nameecho &quot;neuqdelta&quot; | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$na">
+<meta name="twitter:description" content="概述在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考 123456789for name in test01 test02 do  useradd $nameecho &quot;neuqdelta&quot; | passwd --stdin $namemkdir /data/$namechown -R $name /data/$name/chmod -R 700 /data/$name">
 
 
 
@@ -368,23 +368,17 @@
       
 
       
-        <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
-<p>在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在公共服务器中，通常需要增加用户并配置，十分繁琐，于是写了个脚本，供大家参考</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for name in test01 test02 </div><div class="line">do  </div><div class="line">useradd $name</div><div class="line">echo "neuqdelta" | passwd --stdin $name</div><div class="line">mkdir /data/$name</div><div class="line">chown -R $name /data/$name/</div><div class="line">chmod -R 700 /data/$name/</div><div class="line">sed -i '$a export PATH=/home/amax/anaconda3/bin:$PATH' /home/$name/.bashrc</div><div class="line">done</div></pre></td></tr></table></figure>
 <p>脚本执行完毕后，创建test01、test02两个用户，密码都是neuqdelta。并在/data/目录下创建了仅该用户可用的与用户名同名的目录，配置了环境变量。</p>
-<h2 id="代码解释"><a class="markdownIt-Anchor" href="#代码解释"></a> 代码解释</h2>
-<h3 id="for-循环"><a class="markdownIt-Anchor" href="#for-循环"></a> for 循环</h3>
-<p>shell中的for循环的写法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in list</div><div class="line">do </div><div class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">do</span> something</span></div><div class="line">done</div></pre></td></tr></table></figure>
-<h3 id="创建文件修改权限"><a class="markdownIt-Anchor" href="#创建文件修改权限"></a> 创建文件，修改权限</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir filename #创建名为filename的文件夹</div><div class="line">chown -R username filename #filename文件夹及其所有文件更换所有者为username</div><div class="line">chmod -R mode filename #更改改文件夹及其所有文件访问模式</div></pre></td></tr></table></figure>
+<h2 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h2><h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><p>shell中的for循环的写法如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in list</div><div class="line">do </div><div class="line"><span class="meta">#</span> do something</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<h3 id="创建文件，修改权限"><a href="#创建文件，修改权限" class="headerlink" title="创建文件，修改权限"></a>创建文件，修改权限</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir filename #创建名为filename的文件夹</div><div class="line">chown -R username filename #filename文件夹及其所有文件更换所有者为username</div><div class="line">chmod -R mode filename #更改改文件夹及其所有文件访问模式</div></pre></td></tr></table></figure>
 <p>其中mode是三位整数，每位数字是以下数字的和</p>
 <ul>
 <li><code>4</code>也就是“r”，代表读</li>
 <li><code>2</code>也就是“w”，代表写</li>
 <li><code>1</code>也就是“x”，代表执行或切换权限</li>
-<li><code>0</code>也就是“-”，不具备任何权限<br>
-所以7就指的是具有所有权限</li>
+<li><code>0</code>也就是“-”，不具备任何权限<br>所以7就指的是具有所有权限</li>
 </ul>
 <p>三位数的每一位分别代表：</p>
 <ul>
@@ -393,9 +387,7 @@
 <li><code>o</code>other</li>
 </ul>
 <p>所以，我的脚本中的700指的是仅该目录所有者拥有该目录所有权限，其他用户不具备该目录的任何权限。</p>
-<h3 id="在文件中追加一行"><a class="markdownIt-Anchor" href="#在文件中追加一行"></a> 在文件中追加一行</h3>
-<p>这里的作用是在username/.bashrc中新增环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -i '$a 这是追加的内容' file</div></pre></td></tr></table></figure>
+<h3 id="在文件中追加一行"><a href="#在文件中追加一行" class="headerlink" title="在文件中追加一行"></a>在文件中追加一行</h3><p>这里的作用是在username/.bashrc中新增环境变量<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -i '$a 这是追加的内容' file</div></pre></td></tr></table></figure></p>
 <p>其中$a 指的是在末尾追加内容，sed是个十分实用的指令，可以对文本内容进行操作，在此就不过多赘述了。</p>
 
       
@@ -624,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"> 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码解释"><span class="nav-number">2.</span> <span class="nav-text"> 代码解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-循环"><span class="nav-number">2.1.</span> <span class="nav-text"> for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件修改权限"><span class="nav-number">2.2.</span> <span class="nav-text"> 创建文件，修改权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文件中追加一行"><span class="nav-number">2.3.</span> <span class="nav-text"> 在文件中追加一行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码解释"><span class="nav-number">2.</span> <span class="nav-text">代码解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-循环"><span class="nav-number">2.1.</span> <span class="nav-text">for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件，修改权限"><span class="nav-number">2.2.</span> <span class="nav-text">创建文件，修改权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文件中追加一行"><span class="nav-number">2.3.</span> <span class="nav-text">在文件中追加一行</span></a></li></ol></li></ol></div>
             
 
           </div>

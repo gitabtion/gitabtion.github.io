@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Tips 在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。  Code 12345678910111213new CountDownTimer(60000, 1000) &amp;#123;">
+<meta name="description" content="Tips在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。 Code12345678910111213new CountDownTimer(60000, 1000) &amp;#123;">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android CountDownTimer">
 <meta property="og:url" content="http://abtion.cn/2017/08/16/Android3/index.html">
 <meta property="og:site_name" content="Abtion Tech">
-<meta property="og:description" content="Tips 在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。  Code 12345678910111213new CountDownTimer(60000, 1000) &amp;#123;">
+<meta property="og:description" content="Tips在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。 Code12345678910111213new CountDownTimer(60000, 1000) &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-16T10:20:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android CountDownTimer">
-<meta name="twitter:description" content="Tips 在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。  Code 12345678910111213new CountDownTimer(60000, 1000) &amp;#123;">
+<meta name="twitter:description" content="Tips在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。 Code12345678910111213new CountDownTimer(60000, 1000) &amp;#123;">
 
 
 
@@ -369,10 +369,8 @@
       
 
       
-        <h2 id="tips"><a class="markdownIt-Anchor" href="#tips"></a> Tips</h2>
-<p>在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。</p>
-<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> CountDownTimer(<span class="number">60000</span>, <span class="number">1000</span>) &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTick</span><span class="params">(<span class="keyword">long</span> l)</span> </span>&#123;</div><div class="line">                    btnGetVerifyCode.setText((l / <span class="number">1000</span>) + <span class="string">"s"</span>);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">                    btnGetVerifyCode.setClickable(<span class="keyword">true</span>);</div><div class="line">                    btnGetVerifyCode.setText(<span class="string">"获取验证码"</span>);</div><div class="line">                    btnGetVerifyCode.setBackgroundColor(getResources().getColor(R.color.primary));</div><div class="line">                &#125;</div><div class="line">            &#125;.start();</div></pre></td></tr></table></figure>
+        <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>在App中通常会遇到需要发送验证码的时候，因运营商短信发送延迟，用户不能即时获取验证码，为防止服务器被频繁请求，用户获取验证码错位等问题的产生，我们通常设置一个定时器来限制用户获取验证码的请求。以下使用Android中CountDownTimer来实现。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> CountDownTimer(<span class="number">60000</span>, <span class="number">1000</span>) &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTick</span><span class="params">(<span class="keyword">long</span> l)</span> </span>&#123;</div><div class="line">                    btnGetVerifyCode.setText((l / <span class="number">1000</span>) + <span class="string">"s"</span>);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">                    btnGetVerifyCode.setClickable(<span class="keyword">true</span>);</div><div class="line">                    btnGetVerifyCode.setText(<span class="string">"获取验证码"</span>);</div><div class="line">                    btnGetVerifyCode.setBackgroundColor(getResources().getColor(R.color.primary));</div><div class="line">                &#125;</div><div class="line">            &#125;.start();</div></pre></td></tr></table></figure>
 <p>当然，对象是否匿名不影响功能的实现。</p>
 
       
@@ -607,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">1.</span> <span class="nav-text"> Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
