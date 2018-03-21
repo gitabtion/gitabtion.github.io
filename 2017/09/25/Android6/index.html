@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="需求概述现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。  问题概述很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样 123456789101112&amp;lt;TextView">
+<meta name="description" content="需求概述 现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。   问题概述 很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样 123456789101112&amp;lt;TextVi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="View绘制抢占其他控件的简要解决办法">
 <meta property="og:url" content="http://abtion.cn/2017/09/25/Android6/index.html">
 <meta property="og:site_name" content="Abtion Tech">
-<meta property="og:description" content="需求概述现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。  问题概述很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样 123456789101112&amp;lt;TextView">
+<meta property="og:description" content="需求概述 现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。   问题概述 很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样 123456789101112&amp;lt;TextVi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oum3tk6e0.bkt.clouddn.com/blog/android6/android0601.png">
 <meta property="og:image" content="http://oum3tk6e0.bkt.clouddn.com/blog/android6/android0602.png">
 <meta property="og:updated_time" content="2017-09-25T14:32:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View绘制抢占其他控件的简要解决办法">
-<meta name="twitter:description" content="需求概述现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。  问题概述很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样 123456789101112&amp;lt;TextView">
+<meta name="twitter:description" content="需求概述 现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。   问题概述 很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样 123456789101112&amp;lt;TextVi">
 <meta name="twitter:image" content="http://oum3tk6e0.bkt.clouddn.com/blog/android6/android0601.png">
 
 
@@ -371,9 +371,11 @@
       
 
       
-        <h2 id="需求概述"><a href="#需求概述" class="headerlink" title="需求概述"></a>需求概述</h2><p>现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。</p>
+        <h2 id="需求概述"><a class="markdownIt-Anchor" href="#需求概述"></a> 需求概述</h2>
+<p>现在要实现一个需求，RecyclerView的每一个item有两个信息需要展示，分别是itemName和itemSize，itemSize要求紧跟在itemName后面，itemName最多一行，超出部分使用…省略，如图。</p>
 <p><img src="http://oum3tk6e0.bkt.clouddn.com/blog/android6/android0601.png" alt=""></p>
-<h2 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h2><p>很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样</p>
+<h2 id="问题概述"><a class="markdownIt-Anchor" href="#问题概述"></a> 问题概述</h2>
+<p>很自然而然的想到，使用LinearLayout的layout_weight属性就解决了，像下面这样</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">"@+id/txt_name"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:ellipsize</span>=<span class="string">"end"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:maxLines</span>=<span class="string">"1"</span>/&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">"@+id/txt_size"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">       <span class="attr">android:textSize</span>=<span class="string">"16sp"</span>/&gt;</span></div></pre></td></tr></table></figure>
 <p>乍一看感觉还没问题，往下一滑动，是不是傻眼了hhh</p>
 <p><img src="http://oum3tk6e0.bkt.clouddn.com/blog/android6/android0602.png" alt=""></p>
@@ -612,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求概述"><span class="nav-number">1.</span> <span class="nav-text">需求概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题概述"><span class="nav-number">2.</span> <span class="nav-text">问题概述</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求概述"><span class="nav-number">1.</span> <span class="nav-text"> 需求概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题概述"><span class="nav-number">2.</span> <span class="nav-text"> 问题概述</span></a></li></ol></div>
             
 
           </div>

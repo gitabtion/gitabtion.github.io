@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="问题概述NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。 解">
+<meta name="description" content="问题概述 NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NestedScrollView嵌套RecyclerView导致的相关问题">
 <meta property="og:url" content="http://abtion.cn/2017/08/30/Android5/index.html">
 <meta property="og:site_name" content="Abtion Tech">
-<meta property="og:description" content="问题概述NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。 解">
+<meta property="og:description" content="问题概述 NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oum3tk6e0.bkt.clouddn.com//blog/android5/WX20170830-111654.png">
 <meta property="og:updated_time" content="2017-08-30T04:45:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NestedScrollView嵌套RecyclerView导致的相关问题">
-<meta name="twitter:description" content="问题概述NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。 解">
+<meta name="twitter:description" content="问题概述 NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。">
 <meta name="twitter:image" content="http://oum3tk6e0.bkt.clouddn.com//blog/android5/WX20170830-111654.png">
 
 
@@ -371,14 +371,19 @@
       
 
       
-        <h2 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h2><p>NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。</p>
-<h2 id="解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题"><a href="#解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题" class="headerlink" title="解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题"></a>解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题</h2><p>经过阅读<a href="https://developer.android.google.cn/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">官方文档</a>，发现RecyclerView已经提供了解决嵌套时的滑动问题的解决方案<br><img src="http://oum3tk6e0.bkt.clouddn.com//blog/android5/WX20170830-111654.png" alt=""><br>而这个方法是因为RecyclerView实现了NestedScrollingChild2接口而重写的方法</p>
+        <h2 id="问题概述"><a class="markdownIt-Anchor" href="#问题概述"></a> 问题概述</h2>
+<p>NestedScrollView和RecyclerView是support包下替代ScrollView和ListView的控件，使用NestedScrollView嵌套RecyclerView已经很好地解决了原来ScrollView嵌套ListView时的ListView的item显示不全的问题，但是直接直接嵌套不进行相关设计仍然会出现不能惯性滑动、子控件抢焦点等问题，以下是解决方案。</p>
+<h2 id="解决nestedscrolling嵌套recyclerview的不能惯性滑动的问题"><a class="markdownIt-Anchor" href="#解决nestedscrolling嵌套recyclerview的不能惯性滑动的问题"></a> 解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题</h2>
+<p>经过阅读<a href="https://developer.android.google.cn/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">官方文档</a>，发现RecyclerView已经提供了解决嵌套时的滑动问题的解决方案<br>
+<img src="http://oum3tk6e0.bkt.clouddn.com//blog/android5/WX20170830-111654.png" alt=""><br>
+而这个方法是因为RecyclerView实现了NestedScrollingChild2接口而重写的方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNestedScrollingEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</div><div class="line">        getScrollingChildHelper().setNestedScrollingEnabled(enabled);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>在ScrollingChildHelper中，setNestedScrollingEnabled()是这样工作的</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNestedScrollingEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (mIsNestedScrollingEnabled) &#123;</div><div class="line">            ViewCompat.stopNestedScroll(mView);</div><div class="line">        &#125;</div><div class="line">        mIsNestedScrollingEnabled = enabled;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>也就是说，当我们给setNestedScrollingEnabled()传入<code>false</code>，把事件将事件拦截，应该就可以完美解决。事实也正是如此，一行代码解决问题。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnable(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
-<h2 id="嵌套时RecyclerView控件抢焦点。"><a href="#嵌套时RecyclerView控件抢焦点。" class="headerlink" title="嵌套时RecyclerView控件抢焦点。"></a>嵌套时RecyclerView控件抢焦点。</h2><p>在NestedScrollView嵌套RecyclerView时，如果RecyclerView的兄弟View显示在RecyclerView上方时，加载页面时的焦点会直接在RecyclerView的第一个item上，解决办法也十分简单，直接将焦点置于该页面的根view即可解决。</p>
+<h2 id="嵌套时recyclerview控件抢焦点"><a class="markdownIt-Anchor" href="#嵌套时recyclerview控件抢焦点"></a> 嵌套时RecyclerView控件抢焦点。</h2>
+<p>在NestedScrollView嵌套RecyclerView时，如果RecyclerView的兄弟View显示在RecyclerView上方时，加载页面时的焦点会直接在RecyclerView的第一个item上，解决办法也十分简单，直接将焦点置于该页面的根view即可解决。</p>
 <p>在xml文件中添加以下两行代码：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">android:focusable="true"</div><div class="line">android:focusableInTouchMode="true"</div></pre></td></tr></table></figure>
 
@@ -614,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题概述"><span class="nav-number">1.</span> <span class="nav-text">问题概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题"><span class="nav-number">2.</span> <span class="nav-text">解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套时RecyclerView控件抢焦点。"><span class="nav-number">3.</span> <span class="nav-text">嵌套时RecyclerView控件抢焦点。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题概述"><span class="nav-number">1.</span> <span class="nav-text"> 问题概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决nestedscrolling嵌套recyclerview的不能惯性滑动的问题"><span class="nav-number">2.</span> <span class="nav-text"> 解决NestedScrolling嵌套RecyclerView的不能惯性滑动的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套时recyclerview控件抢焦点"><span class="nav-number">3.</span> <span class="nav-text"> 嵌套时RecyclerView控件抢焦点。</span></a></li></ol></div>
             
 
           </div>
