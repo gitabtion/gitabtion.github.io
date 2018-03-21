@@ -83,8 +83,8 @@
     <url>%2F2017%2F08%2F15%2FAndroid2%2F</url>
     <content type="text"><![CDATA[TextInputLayout效果以后有空再放吧 一、导入Support LibraryMaterial Design控件是Android Support Library中的一个重要的组件，要使用TextInputLayout控件，你需要导入两个Library。第一个是appcompat-v7,它确保material style可以向后兼容。第二个是Design Support Library。在你的build.gradle文件中，添加如下依赖： 12compile 'com.android.support:design:25.2.0'compile 'com.android.support:appcompat-v7:25.2.0' 二、在XML中使用该控件TextInputEditText的使用必须在TextInputLayout中才有这种MD的效果 12345678910111213&lt;android.support.design.widget.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content"&gt; &lt;android.support.design.widget.TextInputEditText android:maxLines="1" android:id="@+id/edit_mobile" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginLeft="8dp" android:hint="手机号" android:inputType="number"/&gt; &lt;/android.support.design.widget.TextInputLayout&gt; 其实这里跟EditText没有多大的区别 三、在代码中实现显示错误信息的功能1234567891011/** * 用于TextInputEditText控件显示错误信息 * @param textInputEditText 控件对象 * @param error 错误信息 */ private void showError(TextInputEditText textInputEditText, String error) &#123; textInputEditText.setError(error); textInputEditText.setFocusable(true); textInputEditText.setFocusableInTouchMode(true); textInputEditText.requestFocus(); &#125; 不解释了好吧，在检验到错误的时候调用就好了。 以上]]></content>
       <tags>
-        <tag>Android</tag>
         <tag>Material Design</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
