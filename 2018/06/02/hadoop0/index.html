@@ -94,13 +94,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Abtion Tech">
-<meta property="og:url" content="http://abtion.cn/archives/2017/11/index.html">
+<meta name="description" content="矩阵并行加法使用MapReduce加速，实现思路如下：已知矩阵$A(a_{ij}){mn}$、$B(b{ij})_{mn}$。则矩阵加法为： $$C=A+B=(c_{ij}){mn}=(a{ij}+b_{ij})_{mm}$$加法较乘法简单，map阶段key为$(i,j,x)$,其中：  $i$: C矩阵中元素的横坐标 $j$: C矩阵中元素的纵坐标 $x$: value值所在的原矩阵标记valu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大矩阵使用MapReduce并行计算">
+<meta property="og:url" content="http://abtion.cn/2018/06/02/hadoop0/index.html">
 <meta property="og:site_name" content="Abtion Tech">
+<meta property="og:description" content="矩阵并行加法使用MapReduce加速，实现思路如下：已知矩阵$A(a_{ij}){mn}$、$B(b{ij})_{mn}$。则矩阵加法为： $$C=A+B=(c_{ij}){mn}=(a{ij}+b_{ij})_{mm}$$加法较乘法简单，map阶段key为$(i,j,x)$,其中：  $i$: C矩阵中元素的横坐标 $j$: C矩阵中元素的纵坐标 $x$: value值所在的原矩阵标记valu">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/24/CWWZvV.md.jpg">
+<meta property="og:updated_time" content="2018-06-02T06:53:25.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abtion Tech">
+<meta name="twitter:title" content="大矩阵使用MapReduce并行计算">
+<meta name="twitter:description" content="矩阵并行加法使用MapReduce加速，实现思路如下：已知矩阵$A(a_{ij}){mn}$、$B(b{ij})_{mn}$。则矩阵加法为： $$C=A+B=(c_{ij}){mn}=(a{ij}+b_{ij})_{mm}$$加法较乘法简单，map阶段key为$(i,j,x)$,其中：  $i$: C矩阵中元素的横坐标 $j$: C矩阵中元素的纵坐标 $x$: value值所在的原矩阵标记valu">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/05/24/CWWZvV.md.jpg">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://abtion.cn/archives/2017/11/"/>
+  <link rel="canonical" href="http://abtion.cn/2018/06/02/hadoop0/"/>
 
 
 
 
 
-  <title>归档 | Abtion Tech</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>大矩阵使用MapReduce并行计算 | Abtion Tech</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -154,7 +160,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -272,111 +278,211 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 16 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://abtion.cn/2018/06/02/hadoop0/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Abtion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oum3tk6e0.bkt.clouddn.com/05EFAB27C6DF9EC83E73911B72B0E843.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abtion Tech">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/24/os0/" itemprop="url">
-              
-                <span itemprop="name">操作系统中同步互斥问题的解决方案探究</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">大矩阵使用MapReduce并行计算</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-24T18:57:13+08:00"
-              content="2017-11-24" >
-          11-24
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-02T14:51:30+08:00">
+                2018-06-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/02/hadoop0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/02/hadoop0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/17/ml0/" itemprop="url">
-              
-                <span itemprop="name">Lecture12 Memory Networks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-17T22:57:49+08:00"
-              content="2017-11-17" >
-          11-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h2 id="矩阵并行加法"><a href="#矩阵并行加法" class="headerlink" title="矩阵并行加法"></a>矩阵并行加法</h2><p>使用MapReduce加速，实现思路如下：<br>已知矩阵$A(a_{ij})<em>{mn}$、$B(b</em>{ij})_{mn}$。则矩阵加法为：</p>
+<p>$$C=A+B=(c_{ij})<em>{mn}=(a</em>{ij}+b_{ij})_{mm}$$<br>加法较乘法简单，map阶段key为$(i,j,x)$,其中：</p>
+<ul>
+<li>$i$: C矩阵中元素的横坐标</li>
+<li>$j$: C矩阵中元素的纵坐标</li>
+<li>$x$: value值所在的原矩阵标记<br>value是$(x)$,其中：<ul>
+<li>$x$: 值<br>故shuffle后有$m<em>n</em>2$个键值对。在reduce阶段对相同key的值求和即可。</li>
+</ul>
+</li>
+</ul>
+<h2 id="矩阵并行乘法"><a href="#矩阵并行乘法" class="headerlink" title="矩阵并行乘法"></a>矩阵并行乘法</h2><p>使用MapReduce加速，实现思路如下：<br>已知矩阵$A(a_{ij})<em>{mn}$、$B(b</em>{jk})_{nm}$。则矩阵乘法为：</p>
+<p>$$C=A<em>B=(c_{ik})<em>{mm}=(\sum</em>{k=1}^na_{ik}</em>b_{kj})_{mm}$$</p>
+<p>不难看出，对于结果矩阵$C$中的每一个元素，在计算时都是互相独立的。则使用MapReduce的算法实现思路如下：</p>
+<p><img src="https://s1.ax1x.com/2018/05/24/CWWZvV.md.jpg" alt="Snipaste_2018-05-24_21-53-21.jpg"></p>
+<p>如图中所示，key值是$(i,j,x)$，其中:</p>
+<ul>
+<li>$i$: C矩阵中元素的横坐标</li>
+<li>$j$: C矩阵中元素的纵坐标</li>
+<li>$x$: value值所在的原矩阵标记<br>value是$(k,x)$,其中：<ul>
+<li>$k$: 原矩阵中的行或列(A为列，B为行)</li>
+<li>$x$: 值</li>
+</ul>
+</li>
+</ul>
+<p>故shuffle后有$m<em>m</em>n$个键值对，reduce时对相同的key，value中$k$相同的$x$相乘再求和即可。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oum3tk6e0.bkt.clouddn.com/0C1A2B3571ABA0F583EBA205609C9BB2.jpg" alt="Abtion WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oum3tk6e0.bkt.clouddn.com/alipay.jpg" alt="Abtion Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/13/linux0/" rel="next" title="记一次chainer无法调用cudnn的运维">
+                <i class="fa fa-chevron-left"></i> 记一次chainer无法调用cudnn的运维
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -384,6 +490,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -404,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oum3tk6e0.bkt.clouddn.com/05EFAB27C6DF9EC83E73911B72B0E843.jpeg"
@@ -482,6 +608,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵并行加法"><span class="nav-number">1.</span> <span class="nav-text">矩阵并行加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵并行乘法"><span class="nav-number">2.</span> <span class="nav-text">矩阵并行乘法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -601,11 +743,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -624,6 +764,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://abtion.cn/2018/06/02/hadoop0/';
+          this.page.identifier = '2018/06/02/hadoop0/';
+          this.page.title = '大矩阵使用MapReduce并行计算';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
