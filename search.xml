@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hadoop 伪分布式部分配置文件]]></title>
+    <url>%2F2018%2F06%2F04%2Fhadoop01%2F</url>
+    <content type="text"><![CDATA[croe-site.xml 12345678&lt;property&gt; &lt;name&gt;hadoop.tmp.dir&lt;/name&gt; &lt;value&gt;/home/wan/hadoop-2.8.2/tmp&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;fs.defaultFS&lt;/name&gt; &lt;value&gt;hdfs://0.0.0.0:9000&lt;/value&gt; &lt;/property&gt; hdfs-site.xml 12345678910111213141516&lt;property&gt; &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt; &lt;value&gt;/home/wan/hadoop-2.8.2/hdfs/name&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt; &lt;value&gt;/home/wan/hadoop-2.8.2/hdfs/data&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.replication&lt;/name&gt; &lt;value&gt;1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.permissions.enabled&lt;/name&gt; &lt;value&gt;false&lt;/value&gt; &lt;/property&gt; mapred-site.xml 1234&lt;property&gt; &lt;name&gt;mapreduce.framework.name&lt;/name&gt; &lt;value&gt;yarn&lt;/value&gt; &lt;/property&gt; yarn-site.xml 1234&lt;property&gt; &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt; &lt;value&gt;mapreduce_shuffle&lt;/value&gt; &lt;/property&gt;]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[大矩阵使用MapReduce并行计算]]></title>
     <url>%2F2018%2F06%2F02%2Fhadoop0%2F</url>
     <content type="text"><![CDATA[矩阵并行加法使用MapReduce加速，实现思路如下：已知矩阵$A(a_{ij}){mn}$、$B(b{ij})_{mn}$。则矩阵加法为： $$C=A+B=(c_{ij}){mn}=(a{ij}+b_{ij})_{mm}$$加法较乘法简单，map阶段key为$(i,j,x)$,其中： $i$: C矩阵中元素的横坐标 $j$: C矩阵中元素的纵坐标 $x$: value值所在的原矩阵标记value是$(x)$,其中： $x$: 值故shuffle后有$mn2$个键值对。在reduce阶段对相同key的值求和即可。 矩阵并行乘法使用MapReduce加速，实现思路如下：已知矩阵$A(a_{ij}){mn}$、$B(b{jk})_{nm}$。则矩阵乘法为： $$C=AB=(c_{ik}){mm}=(\sum{k=1}^na_{ik}b_{kj})_{mm}$$ 不难看出，对于结果矩阵$C$中的每一个元素，在计算时都是互相独立的。则使用MapReduce的算法实现思路如下： 如图中所示，key值是$(i,j,x)$，其中: $i$: C矩阵中元素的横坐标 $j$: C矩阵中元素的纵坐标 $x$: value值所在的原矩阵标记value是$(k,x)$,其中： $k$: 原矩阵中的行或列(A为列，B为行) $x$: 值 故shuffle后有$mmn$个键值对，reduce时对相同的key，value中$k$相同的$x$相乘再求和即可。]]></content>
