@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="NLP," />
 
 
 
@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="问题概述Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。 代码示例代码背景 一个应用需实现忘记密码功能，在此功能中，我们创建了一个Activity用于承载忘记密码模块的所有功能实现，忘记密码模块所有页面逻辑都依赖于Fragment来实现，第一">
-<meta name="keywords" content="Android">
+<meta name="description" content="QANETCombining local convolution with global self-attention for reading comprehension. model overview components Embedding layer Embedding encoder layer Context-query attention layer Model encoder lay">
+<meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用接口实现Fragment与Activity间的通信">
-<meta property="og:url" content="http://abtion.cn/2017/08/13/Android0/index.html">
+<meta property="og:title" content="note of qanet">
+<meta property="og:url" content="http://abtion.cn/2019/04/07/note-qanet/index.html">
 <meta property="og:site_name" content="Abtion Tech">
-<meta property="og:description" content="问题概述Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。 代码示例代码背景 一个应用需实现忘记密码功能，在此功能中，我们创建了一个Activity用于承载忘记密码模块的所有功能实现，忘记密码模块所有页面逻辑都依赖于Fragment来实现，第一">
+<meta property="og:description" content="QANETCombining local convolution with global self-attention for reading comprehension. model overview components Embedding layer Embedding encoder layer Context-query attention layer Model encoder lay">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-15T13:30:15.000Z">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/HTB1e3iOPYrpK1RjSZTE763WAVXat.png">
+<meta property="og:updated_time" content="2019-04-08T04:56:54.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用接口实现Fragment与Activity间的通信">
-<meta name="twitter:description" content="问题概述Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。 代码示例代码背景 一个应用需实现忘记密码功能，在此功能中，我们创建了一个Activity用于承载忘记密码模块的所有功能实现，忘记密码模块所有页面逻辑都依赖于Fragment来实现，第一">
+<meta name="twitter:title" content="note of qanet">
+<meta name="twitter:description" content="QANETCombining local convolution with global self-attention for reading comprehension. model overview components Embedding layer Embedding encoder layer Context-query attention layer Model encoder lay">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/HTB1e3iOPYrpK1RjSZTE763WAVXat.png">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://abtion.cn/2017/08/13/Android0/"/>
+  <link rel="canonical" href="http://abtion.cn/2019/04/07/note-qanet/"/>
 
 
 
 
 
-  <title>利用接口实现Fragment与Activity间的通信 | Abtion Tech</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>note of qanet | Abtion Tech</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -291,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://abtion.cn/2017/08/13/Android0/">
+    <link itemprop="mainEntityOfPage" href="http://abtion.cn/2019/04/07/note-qanet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Abtion">
@@ -308,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">利用接口实现Fragment与Activity间的通信</h1>
+          <h1 class="post-title" itemprop="name headline">note of qanet</h1>
         
 
         <div class="post-meta">
@@ -320,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-13T13:36:49+08:00">
-                2017-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T22:32:14+08:00">
+                2019-04-07
               </time>
             
 
@@ -339,9 +341,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/13/Android0/#comments" itemprop="discussionUrl">
+                <a href="/2019/04/07/note-qanet/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/13/Android0/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/04/07/note-qanet/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,18 +371,88 @@
       
 
       
-        <h2 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h2><p>Fragment以优越的性能被广泛使用于Android应用中，但其并不能与Activity直接通信，对此，网上提出了众多解决方案，参考许多方案后，我决定在项目中采用接口实现两者间的通信，便于维护且相对简单。</p>
-<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><h3 id="代码背景"><a href="#代码背景" class="headerlink" title="代码背景"></a>代码背景</h3><hr>
-<p>一个应用需实现忘记密码功能，在此功能中，我们创建了一个Activity用于承载忘记密码模块的所有功能实现，忘记密码模块所有页面逻辑都依赖于Fragment来实现，第一个页面就是获取手机号并请求后台为该手机号发送验证码</p>
-<hr>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="1-在Fragment中创建Interface"><a href="#1-在Fragment中创建Interface" class="headerlink" title="1. 在Fragment中创建Interface"></a>1. 在Fragment中创建Interface</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">     * Fragment与Activity通信的接口</span></div><div class="line"><span class="comment">     * 用于传递输入的电话号码</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InputMobileListener</span> </span>&#123;</div><div class="line">        <span class="comment">//传入电话号码给Activity</span></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">inputPhoneNumberNextAction</span><span class="params">(String mobile)</span></span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>这里在Fragment中定义了一个接口，在接口中写了一个方法以保存手机号的字符串为参数，</p>
-<h4 id="2-在Fragment所依赖的Activity中实现接口并重写方法"><a href="#2-在Fragment所依赖的Activity中实现接口并重写方法" class="headerlink" title="2. 在Fragment所依赖的Activity中实现接口并重写方法"></a>2. 在Fragment所依赖的Activity中实现接口并重写方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForgetPwdActivity</span> <span class="keyword">implements</span> <span class="title">InputMobileFragment</span>.<span class="title">InputMobileListener</span></span>&#123;</div><div class="line">	······</div><div class="line">	<span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inputPhoneNumberNextAction</span><span class="params">(<span class="keyword">final</span> String mobile)</span> </span>&#123;</div><div class="line">    	<span class="comment">//替换Fragment</span></div><div class="line">    	replaceFragment(R.id.frame_layout, checkCodeFragment, <span class="keyword">null</span>);</div><div class="line">        <span class="comment">//请求后台为该号码发送验证码</span></div><div class="line">        sendVerifyCode(mobile);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Activity中重写该方法，在方法体中接收到手机号并进行一系列操作，此处是发送验证码</p>
-<h4 id="3-在Fragment中重写回调方法"><a href="#3-在Fragment中重写回调方法" class="headerlink" title="3. 在Fragment中重写回调方法"></a>3. 在Fragment中重写回调方法</h4><p>Fragment与Activity一样，在创建和销毁时都会回调一系列回调方法，而onAttach方法是在Fragment创建之初回调的，所以我们重写onAttach方法便可以保证Fragment全程皆能调用接口中的方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAttach</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onAttach(activity);</div><div class="line">    <span class="comment">//抓取异常，在父Activity未实现接口时抛出。</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    		<span class="comment">//Java的多态特性之一，父类引用子类对象</span></div><div class="line">       InputMobileListener inputMobileListener = (InputMobileListener) activity;</div><div class="line">    &#125; <span class="keyword">catch</span> (ClassCastException e) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassCastException(activity.toString() + getString(R.string.implementSPN));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-在Fragment中通过接口引用Activity对象调用接口方法"><a href="#4-在Fragment中通过接口引用Activity对象调用接口方法" class="headerlink" title="4. 在Fragment中通过接口引用Activity对象调用接口方法"></a>4. 在Fragment中通过接口引用Activity对象调用接口方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonClicked</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="comment">//获取手机号输入框中的手机号</span></div><div class="line">	String mobile = mobileEdit.getText().toString().trim();</div><div class="line">	<span class="comment">//此处应对获取的手机号做正则匹配，无关代码便不列出了</span></div><div class="line">	<span class="comment">//调用重写后的接口方法</span></div><div class="line">	inputMobileListener = (InputMobileListener) activity;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>到这就是全部实现了，这其实就是Java多态的一种应用，相信你很快就能掌握。</p>
+        <h1 id="QANET"><a href="#QANET" class="headerlink" title="QANET"></a>QANET</h1><p>Combining local convolution with global self-attention for reading comprehension.</p>
+<h2 id="model-overview"><a href="#model-overview" class="headerlink" title="model overview"></a>model overview</h2><p><img src="https://ae01.alicdn.com/kf/HTB1e3iOPYrpK1RjSZTE763WAVXat.png" alt="image-20190407204229183"></p>
+<h3 id="components"><a href="#components" class="headerlink" title="components"></a>components</h3><ul>
+<li>Embedding layer</li>
+<li>Embedding encoder layer</li>
+<li>Context-query attention layer</li>
+<li>Model encoder layer</li>
+<li>output layer</li>
+</ul>
+<h3 id="features"><a href="#features" class="headerlink" title="features"></a>features</h3><ul>
+<li>For both the embedding and modeling encoders, we only use <code>convolutional</code> and <code>self-attention mechanism</code>, discarding RNNs, which are used by most of the existing reading comprehension models.</li>
+<li>Use the same Encoder Block (right) throughout the model, only varying the number of convolutional layers for each block.</li>
+<li>Use layernorm and residual connection between every layer in the Encoder<br>Block.</li>
+<li>Share weights of the context and question encoder, and of the three output encoders.</li>
+</ul>
+<h2 id="embedding-layer"><a href="#embedding-layer" class="headerlink" title="embedding layer"></a>embedding layer</h2><ul>
+<li>The word embedding is fixed during training and initialized from the $p_1 = 300​$ dimensional pre-trained GloVe word vectors.</li>
+<li>All the out-of-vocabulary words aremapped to an <code>&lt;UNK&gt;</code> token, whose embedding is trainable with random initialization.</li>
+<li>Each character is represented as a trainable vector of dimension $p_2 = 200$, meaning each word can be viewed as the concatenation of the embedding vectors for each of its characters. </li>
+<li>The length of each word is either <code>truncated or padded to 16</code>.</li>
+<li>Output: $x$ from this layer is the concatenation $[x^w;x^c] ∈ \textbf{R}^{p_1+p_2}$, where $x^w$ and<br>$x^c$ are the word embedding and the convolution output of character embedding of $x$ respectively.</li>
+</ul>
+<h2 id="embedding-encoder-layer"><a href="#embedding-encoder-layer" class="headerlink" title="embedding encoder layer"></a>embedding encoder layer</h2><ul>
+<li><p>[convolution-layer × 4 + self-attention-layer + feed-forward-layer]</p>
+</li>
+<li><p>Use depthwise separable convolutions.</p>
+</li>
+<li><p>The kernel size is 7, the number of filters is $d = 128$.</p>
+</li>
+<li><p>For the self-attention-layer:</p>
+<ul>
+<li><p>adopt the multi-head attention mechanism.</p>
+</li>
+<li><p>The number of heads is 8 throughout all the layers.</p>
+</li>
+<li><p>for each position in the input, called the query, computes a weighted sum of all positions, or keys, in the input based on the similarity between the query and key as measured by the dot product.</p>
+<blockquote>
+<p>对于输入中称为查询的每个位置，根据由点积测量的查询和键之间的相似性，计算输入中所有位置或键的加权和。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Each of these basic operations (conv/self-attention/ffn) is placed inside a <em>residual block</em>, for an input $x$ and a given operation $f $, the output is $f (layernorm(x)) + x$.</p>
+</li>
+<li><p>input of this layer is a vector of dimension $p_1 + p_2 = 500$ for each individual word</p>
+</li>
+<li><p>The output of this layer is a also of dimension $d = 128$</p>
+</li>
+</ul>
+<h2 id="context-query-attention-layer"><a href="#context-query-attention-layer" class="headerlink" title="context-query attention layer"></a>context-query attention layer</h2><ul>
+<li>use $C$ and $Q​$ to denote the encoded context and query.</li>
+<li>Computer the similarities between each pair of context and query words, rendering a similarity<br>matrix $S ∈ \textbf{R}^{n×m}$.</li>
+<li>normalize each row of $S​$ by applying the softmax function, getting a matrix $\overline{S}​$.</li>
+<li>context-to-query attention is computed as $A=\overline{S}·Q^T∈\textbf{R}^{n×d}$</li>
+<li>The similarity function used here is the trilinear function $f(q, c) = W_0[q, c, q ⊙ c]$,where $⊙$ is the element-wise multiplication and $W_0$ is a trainable variable.</li>
+<li>compute the column normalized matrix $\overline{\overline{S}}$ of $S$ by softmax function.</li>
+<li>the query-to-context attention is $B = \overline{S} · \overline{\overline{S}}^T · C^T​$ .  </li>
+</ul>
+<h2 id="model-encoder-layer"><a href="#model-encoder-layer" class="headerlink" title="model encoder layer"></a>model encoder layer</h2><ul>
+<li>the input of this layer at each position is $[c, a, c ⊙ a, c ⊙ b]$, where $a$ and $b$ are respectively a row of attention matrix $A$ and $B$.</li>
+<li>The layer parameters are the same as the Embedding Encoder Layer except that:<ul>
+<li>convolution layer number is 2 within a block</li>
+<li>the total number of blocks are 7</li>
+</ul>
+</li>
+<li>share weights between each of the 3 repetitions of the model encoder.</li>
+</ul>
+<h2 id="output-layer"><a href="#output-layer" class="headerlink" title="output layer"></a>output layer</h2><ul>
+<li><p>task-specific, example in SQuAD</p>
+</li>
+<li><p>$p^1 = softmax(W_1[M_0; M_1])​$</p>
+</li>
+<li><p>$p^2 = softmax(W_2[M_0; M_2])$</p>
+</li>
+<li><p>$W_1$ and $W_2$ are two trainable variables and $M_0$ , $M_1$ , $M_2$ are respectively the outputs of the<br>three model encoders.</p>
+</li>
+<li><p>$L(θ) = − \frac{1}{N}\sum_{i}^{n} 􏲉log(p^1y_1 ) + log(p^2y_2 )􏲊 $</p>
+</li>
+<li><p>where $y_i^1$ and $y_i^2$ are respectively the groundtruth starting and ending position of example $i$, and $θ$ </p>
+<p>contains all the trainable variables. </p>
+</li>
+</ul>
 
       
     </div>
@@ -427,7 +499,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
           
         </div>
       
@@ -440,15 +512,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/22/java1/" rel="next" title="常用设计模式">
+                <i class="fa fa-chevron-left"></i> 常用设计模式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/13/Android1/" rel="prev" title="Android入门笔记">
-                Android入门笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -610,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题概述"><span class="nav-number">1.</span> <span class="nav-text">问题概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码示例"><span class="nav-number">2.</span> <span class="nav-text">代码示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码背景"><span class="nav-number">2.1.</span> <span class="nav-text">代码背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码详解"><span class="nav-number">2.2.</span> <span class="nav-text">代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在Fragment中创建Interface"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 在Fragment中创建Interface</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Fragment所依赖的Activity中实现接口并重写方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 在Fragment所依赖的Activity中实现接口并重写方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在Fragment中重写回调方法"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. 在Fragment中重写回调方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-在Fragment中通过接口引用Activity对象调用接口方法"><span class="nav-number">2.2.4.</span> <span class="nav-text">4. 在Fragment中通过接口引用Activity对象调用接口方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#QANET"><span class="nav-number">1.</span> <span class="nav-text">QANET</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#model-overview"><span class="nav-number">1.1.</span> <span class="nav-text">model overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#components"><span class="nav-number">1.1.1.</span> <span class="nav-text">components</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#features"><span class="nav-number">1.1.2.</span> <span class="nav-text">features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#embedding-layer"><span class="nav-number">1.2.</span> <span class="nav-text">embedding layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#embedding-encoder-layer"><span class="nav-number">1.3.</span> <span class="nav-text">embedding encoder layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#context-query-attention-layer"><span class="nav-number">1.4.</span> <span class="nav-text">context-query attention layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-encoder-layer"><span class="nav-number">1.5.</span> <span class="nav-text">model encoder layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#output-layer"><span class="nav-number">1.6.</span> <span class="nav-text">output layer</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -759,9 +831,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://abtion.cn/2017/08/13/Android0/';
-          this.page.identifier = '2017/08/13/Android0/';
-          this.page.title = '利用接口实现Fragment与Activity间的通信';
+          this.page.url = 'http://abtion.cn/2019/04/07/note-qanet/';
+          this.page.identifier = '2019/04/07/note-qanet/';
+          this.page.title = 'note of qanet';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
