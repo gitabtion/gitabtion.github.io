@@ -103,7 +103,7 @@
 <meta property="og:description" content="QANETCombining local convolution with global self-attention for reading comprehension. model overview components Embedding layer Embedding encoder layer Context-query attention layer Model encoder lay">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/HTB1e3iOPYrpK1RjSZTE763WAVXat.png">
-<meta property="og:updated_time" content="2019-04-08T05:07:05.045Z">
+<meta property="og:updated_time" content="2019-04-08T13:04:13.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="note of qanet">
 <meta name="twitter:description" content="QANETCombining local convolution with global self-attention for reading comprehension. model overview components Embedding layer Embedding encoder layer Context-query attention layer Model encoder lay">
@@ -357,7 +357,7 @@
 <li>All the out-of-vocabulary words aremapped to an <code>&lt;UNK&gt;</code> token, whose embedding is trainable with random initialization.</li>
 <li>Each character is represented as a trainable vector of dimension $p_2 = 200$, meaning each word can be viewed as the concatenation of the embedding vectors for each of its characters. </li>
 <li>The length of each word is either <code>truncated or padded to 16</code>.</li>
-<li>Output: $x$ from this layer is the concatenation $[x^w;x^c] ∈ \textbf{R}^{p_1+p_2}$, where $x^w$ and<br>$x^c$ are the word embedding and the convolution output of character embedding of $x$ respectively.</li>
+<li>Output: $x$ from this layer is the concatenation $[x^w;x^c] ∈ \textbf{R}^{p_1+p_2}$, where $x^w$ and $x^c$ are the word embedding and the convolution output of character embedding of $x$ respectively.</li>
 </ul>
 <h2 id="embedding-encoder-layer"><a href="#embedding-encoder-layer" class="headerlink" title="embedding encoder layer"></a>embedding encoder layer</h2><ul>
 <li><p>[convolution-layer × 4 + self-attention-layer + feed-forward-layer]</p>
@@ -388,9 +388,9 @@
 </ul>
 <h2 id="context-query-attention-layer"><a href="#context-query-attention-layer" class="headerlink" title="context-query attention layer"></a>context-query attention layer</h2><ul>
 <li>use $C$ and $Q​$ to denote the encoded context and query.</li>
-<li>Computer the similarities between each pair of context and query words, rendering a similarity<br>matrix $S ∈ \textbf{R}^{n×m}$.</li>
+<li>Computer the similarities between each pair of context and query words, rendering a similarity matrix $S ∈ \textbf{R}^{n×m}$.</li>
 <li>normalize each row of $S​$ by applying the softmax function, getting a matrix $\overline{S}​$.</li>
-<li>context-to-query attention is computed as $A=\overline{S}·Q^T∈\textbf{R}^{n×d}$</li>
+<li>context-to-query attention is computed as $A=\overline{S}·Q^T∈\textbf{R}^{n×d}$.</li>
 <li>The similarity function used here is the trilinear function $f(q, c) = W_0[q, c, q ⊙ c]$,where $⊙$ is the element-wise multiplication and $W_0$ is a trainable variable.</li>
 <li>compute the column normalized matrix $\overline{\overline{S}}$ of $S$ by softmax function.</li>
 <li>the query-to-context attention is $B = \overline{S} · \overline{\overline{S}}^T · C^T​$ .  </li>
@@ -411,12 +411,11 @@
 </li>
 <li><p>$p^2 = softmax(W_2[M_0; M_2])$</p>
 </li>
-<li><p>$W_1$ and $W_2$ are two trainable variables and $M_0$ , $M_1$ , $M_2$ are respectively the outputs of the<br>three model encoders.</p>
+<li><p>$W_1$ and $W_2$ are two trainable variables and $M_0$ , $M_1$ , $M_2$ are respectively the outputs of the three model encoders.</p>
 </li>
-<li><p>$L(θ) = − \frac{1}{N}\sum_{i}^{n} 􏲉log(p^1y_1 ) + log(p^2y_2 )􏲊 $</p>
+<li><p>$L(θ) = − \frac{1}{N}\sum_{i}^{n}􏲉[log(p^1y_1)+log(p^2y_2)]􏲊$</p>
 </li>
-<li><p>where $y_i^1$ and $y_i^2$ are respectively the groundtruth starting and ending position of example $i$, and $θ$ </p>
-<p>contains all the trainable variables. </p>
+<li><p>where $y_i^1$ and $y_i^2$ are respectively the groundtruth starting and ending position of example $i$, and $θ$ contains all the trainable variables. </p>
 </li>
 </ul>
 
